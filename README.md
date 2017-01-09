@@ -1,11 +1,11 @@
 # Team Project <put your project name here ...>
 Teamname <put your team name here ...>
 
-##1. Short project description
+##1. Description
 
 Briefly list the purpose of your software system in a few short full sentences.
 
-##2.	Product name and list of features
+##2.	List of features
 
 In bullet points: give your proposed software system a name and list the 5-10 key features.
 
@@ -13,7 +13,7 @@ In bullet points: give your proposed software system a name and list the 5-10 ke
 
 Summarize the major requirements. List as full sentences.
 
-##4.	System Architecture
+##4.	Architecture
 
 Use a UML deployment diagram to show the overall system architecture and the system components. Use draw.io to draw the diagram. For reference check: (https://www.nomagic.com/images/guides/no_magic_quick_reference_guide_uml.pdf)
 
