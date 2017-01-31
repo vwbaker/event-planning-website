@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html ng-app="CourseApp">
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script>
+angular.module('CourseApp', []).controller('coursesController', function($scope, $http) {
+  $http.get('http://cp-missingsemicolons.herokuapp.com/course').then(function (response) {
+      $scope.myData = response.data;
+  });
+});
+</script>
+<body>
+
+<div ng-controller="coursesController"> 
+{{myData.prefix}}
+
+<ul>
+  <li ng-repeat="x in myData">
+    {{ x.prefix + ' ' + x.number + ': ' + x.title }}
+  </li>
+</ul>
+
+</div>
+
+
+
+</body>
+</html>
