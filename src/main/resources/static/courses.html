@@ -47,9 +47,11 @@ app.controller('CourseCtrl', function ($scope, $http, $dialog) {
 
   	$scope.edit = function(course){
    	 	var courseToEdit = course;
-    	$dialog.dialog(angular.extend(editDialogOptions, {resolve: {course: angular.copy(courseToEdit)}})).open();
+    	$dialog.dialog(angular.extend(editDialogOptions, {resolve: {course: angular.copy(courseToEdit)}})).
+    	open().then(function (){
+    	    loadCourses($scope, $http);
+        }) ;
   	};
-  	
 });
 
 app.controller('EditCourseCtrl', function ($scope, $http, course, dialog) {
