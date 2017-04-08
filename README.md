@@ -1,5 +1,5 @@
-# Team Project <uPlan ...>
-Teamname <put your team name here ...>
+# Team Project <uPlan>
+Teamname <Tori Baker, Pranathi Guntupalli, Sarah Kurdoghlian>
 
 ##1. Description
 
