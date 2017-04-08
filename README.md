@@ -1,5 +1,5 @@
-# Team Project uPlan or iPlan
-Teamname <Tori Baker, Pranathi Guntupalli, Sarah Kurdoghlian>
+# uPlan or iPlan
+Team Members: Tori Baker, Pranathi Guntupalli, Sarah Kurdoghlian
 
 ##1. Description
 
