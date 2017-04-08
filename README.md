@@ -1,5 +1,8 @@
 # Team Project <put your project name here ...>
 Teamname <put your team name here ...>
+Sarah Kurdoghlian
+Tori Baker
+Pranathi Gundupalli
 
 ##1. Description
 
