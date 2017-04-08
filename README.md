@@ -1,4 +1,4 @@
-# Team Project <put your project name here ...>
+# Team Project <uPlan ...>
 Teamname <put your team name here ...>
 
 ##1. Description
