@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="NewEventApp">
+<html ng-app="ItemsListApp">
 <head>
-<title>New Event App</title>
+<title>Items List App</title>
 <meta charset="utf-8">
 
 <script
@@ -13,12 +13,12 @@
 
 
 <script>
-var app = angular.module('NewEventApp', []);
+var app = angular.module('ItemsListApp', []);
 
-app.controller('NewEventCtrl', function($scope, $http) {
+app.controller('ItemsListCtrl', function($scope, $http) {
 
    $scope.createNewEvent = function() {
-      window.location.href = '/items_list.html';
+      window.location.href = '/assign_items.html';
    };
 
 });
@@ -27,17 +27,14 @@ app.controller('NewEventCtrl', function($scope, $http) {
 </head>
 
 <body>
-   <div ng-controller="NewEventCtrl">
+   <div ng-controller="ItemsListCtrl">
    <center>
    
 <p> </p>
       
 
-      Event Name: <input /> </p>
-      Guests: <input /> </p>
-      When: <input /> </p>
-      Where: <input /> </p>
-      Themes: <input /> </p>
+      Items List: <input /> </p>
+      Budget: <input /> </p>
       
       <button ng-click="createNewEvent()">Next</button>
 
