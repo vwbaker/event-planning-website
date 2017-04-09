@@ -14,7 +14,34 @@
 
 var app = angular.module('AssignItemsApp', []);
 
-app.controller('NewEventCtrl', function($scope, $http) {
+app.controller('AssignItemsCtrl', function($scope, $http) {
+   $scope.event = {};
+   $scope.guestitems = [];
+   var url = window.location.href.split('id=');
+   if (url.length > 1) {
+      $scope.id = url[1];
+      $http({
+         method: 'GET',
+         url: 'http://localhost:8080/event/' + $scope.id
+      }).then(function(response) {
+         $scope.event = response.data;
+         for (var i = 0; i < $scope.event.guests.length; i++) {
+	    $scope.guestitems.push([]);
+         }
+      });
+   }
+
+  $scope.itemMouseDown = function(index) {
+    $scope.curItem = index;
+  };
+
+   $scope.droponguest = function(index) {
+      console.log('guest #' + index + ' is bringing ' + $scope.curItem);
+      console.log($scope.event.items);
+      console.log($scope.event.items[$scope.curItem]);
+      $scope.guestitems[index].push($scope.event.items[$scope.curItem]);
+      $scope.event.items[$scope.curItem] = "";
+   };
 
    $scope.createNewEvent = function() {
       window.location.href = '/assign_items.html';
@@ -87,13 +114,39 @@ input:hover, select:hover, button:hover {
    
 <p> </p>
       
-	Sign up to Bring an Item! </p>
-      Item 1 (All Identified in Last Page): <input /> </p>
-      Item 2: <input /></p>
-      Item 3: <input /> </p>
-      Item 4: <input /></p>
-      
-      Cool! You have signed up to bring: </p>
+Organize who brings what: </p>
+      <div class="display-item-guest-list">
+      <div>
+         Items Needed:
+         <table>
+            <tr ng-repeat="item in event.items track by $index">
+              <td>
+                 <div class="event-item" ng-mousedown="itemMouseDown($index)" >
+                    {{event.items[$index]}}
+                 </div>
+              </td>
+            </tr>
+         </table>
+     </div>
+
+      <div>
+         Guests:
+         <table>
+            <tr ng-repeat="guest in event.guests track by $index">
+              <td>
+                 <div class="event-guest" ng-mouseup="droponguest($index)">
+                    {{event.guests[$index]}} is bringing:
+                    <ul>
+                      <li ng-repeat="item in guestitems[$index] track by $item">
+			{{item}}
+		      </li>
+                    </ul>
+                 </div>
+              </td>
+            </tr>
+         </table>
+      </div>
+      </div>
       
       Now, how do you plan on getting to the event? </p>
       
