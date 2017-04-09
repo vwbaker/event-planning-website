@@ -36,9 +36,6 @@ app.controller('AssignItemsCtrl', function($scope, $http) {
   };
 
    $scope.droponguest = function(index) {
-      console.log('guest #' + index + ' is bringing ' + $scope.curItem);
-      console.log($scope.event.items);
-      console.log($scope.event.items[$scope.curItem]);
       $scope.guestitems[index].push($scope.event.items[$scope.curItem]);
       $scope.event.items[$scope.curItem] = "";
    };
@@ -47,8 +44,13 @@ app.controller('AssignItemsCtrl', function($scope, $http) {
       window.location.href = '/assign_items.html';
    };
 
+   $scope.goToEventPage = function() {
+      window.location.href = '/eventPage.html?id=' + $scope.id;
+   };
+
 });
 </script>
+
 <style>
 .button {
     border-radius: 25px;
@@ -139,9 +141,11 @@ Organize who brings what: </p>
       
       Now, how do you plan on getting to the event? </p>
             
-   <button class = "button button1">Create a Carpool</button></p>
-   <button class = "button button2">Sign up for Carpool</button> </p>
-   <button class = "button button3"><a class="active" href="/eventPage.html">Riding Solo</button></a></p>
+        
+      
+<button class = "button button1">Create a Carpool</button></p>
+<button class = "button button2">Sign up for Carpool</button> </p>
+<button class = "button button3"><a class="active" ng-click="goToEventPage()">Riding Solo</button></a></p>
 
 </center>      
 </div>
