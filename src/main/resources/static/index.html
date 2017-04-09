@@ -11,28 +11,34 @@
         rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="home.css" />
 
+<style> 
+#rcorners1 {
+    border-radius: 25px;
+    background: #73AD21;
+    padding: 20px; 
+    width: 150px;
+    height: 60px;    
+}
 
+</style>
 <script>
 var app = angular.module('HomeApp', []);
-
 app.controller('HomeCtrl', function($scope, $http) {
-
 	$scope.createNewEvent = function() {
 		window.location.href = '/newEvent.html';
 	};
-
 });
 
 </script>
 </head>
-
 <body>
 <center>
-   
-   
+    
    <h1 class = "brand-heading intro"> Plan-it </h1>
    <div ng-controller="HomeCtrl">
-		<button ng-click="createNewEvent()">Get Started!</button>
+  
+	<button ng-click="createNewEvent()" id="rcorners1"> <font size = "4">Get Started!</button>
+	</font>
 	</div>
    <div id="background-image"></div>
    <div id="content">
@@ -41,6 +47,9 @@ app.controller('HomeCtrl', function($scope, $http) {
    </div>
    <p class="intro-text">A free website to create and plan your events. </p>
    
+
+	 
+
 	
 </body>
 </html>

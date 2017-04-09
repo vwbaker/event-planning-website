@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="EventApp">
+<head>
+<title>Event App</title>
+<meta charset="utf-8">
+
+<script
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link
+        href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css"
+        rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="home.css" />
+
+
+<script>
+var app = angular.module('EventApp', []);
+
+function loadEvent ($scope, $http) {
+	var id = window.location.href.split('id=')[1];
+	
+	$http({
+		method: 'GET',
+		url: 'http://localhost:8080/event/' + id
+	}).then(function(response) {
+		$scope.event = response.data;
+	});
+}
+
+app.controller('EventCtrl', function($scope, $http) {
+
+	loadEvent($scope, $http);
+
+});
+
+</script>
+</head>
+
+<body>
+   <div ng-controller="EventCtrl">
+   <center>
+   
+<p> </p>
+      
+      Event Name: {{event.eventName}}<br />
+      Guests: {{event.guests}}<br />
+      When: {{event.date}}<br />
+      Where: {{event.location}}<br />
+      Description: {{event.description}}<br />
+      Themes: {{event.theme}} <br />
+      
+    </center>
+     
+      
+</div>
+</body>
+</html>
