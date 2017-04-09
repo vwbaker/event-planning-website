@@ -25,22 +25,30 @@ app.controller('NewEventCtrl', function($scope, $http) {
 
 </script>
 </head>
-
+   
 <body>
    <div ng-controller="NewEventCtrl">
    <center>
-   
-<p> </p>
-      
+   <p> </p>     
+ 
+   Event Name: <input /> </p>
+   Guests: <input /> </p>
+   When: <input /> </p>
+   Where: <input /> </p>
+   Themes:
+      <select>
+         <option value="Wedding">Wedding</option>
+         <option value="Baby Shower">Baby Shower</option>
+         <option value="Birthday">Birthday</option>
+         <option value="Outdoor Activity">Outdoor Activity</option>
+         <option value="Christmas">Christmas</option>
+         <option value="Halloween">Halloween</option>
+         <option value="House Warming">House Warming</option>
+      </select> </p>
 
-      Event Name: <input /> </p>
-      Guests: <input /> </p>
-      When: <input /> </p>
-      Where: <input /> </p>
-      Themes: <input /> </p>
+   <button ng-click="createNewEvent()">Next</button>
       
-      <button ng-click="createNewEvent()">Next</button>
-
+      
     </center>
      
       
