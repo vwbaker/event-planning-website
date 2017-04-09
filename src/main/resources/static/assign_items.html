@@ -11,7 +11,7 @@
         rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="home.css" />
 
-
+<script>
 var app = angular.module('AssignItemsApp', []);
 
 app.controller('AssignItemsCtrl', function($scope, $http) {
@@ -48,7 +48,7 @@ app.controller('AssignItemsCtrl', function($scope, $http) {
    };
 
 });
-
+</script>
 <style>
 .button {
     border-radius: 25px;
@@ -104,8 +104,6 @@ input:hover, select:hover, button:hover {
    }
 </style>
 
-</script>
-
 </head>
 
 <body style = "font-size:120%;">
@@ -149,10 +147,11 @@ Organize who brings what: </p>
       </div>
       
       Now, how do you plan on getting to the event? </p>
+        
       
-<button onclick="getElementById('demo').innerHTML=Date()" class = "button button1">Create a Carpool</button></p>
-<button onclick="getElementById('demo').innerHTML=Date()" class = "button button2">Sign up for Carpool</button> </p>
-<button onclick="getElementById('demo').innerHTML=Date()" class = "button button3">Riding Solo</button> </p>
+<button class = "button button1">Create a Carpool</button></p>
+<button class = "button button2">Sign up for Carpool</button> </p>
+<button class = "button button3"><a class="active" href="/eventPage.html">Riding Solo</button></a></p>
 
     </center>
      
