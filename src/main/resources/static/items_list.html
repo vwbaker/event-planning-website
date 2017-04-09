@@ -83,7 +83,7 @@ app.controller('ItemsListCtrl', function($scope, $http) {
       }).then(function(response) {
          $scope.event = response.data;
          if ($scope.event.items == null) {
-            $scope.event.items = [""];
+            $scope.event.items = [""]; }
       });
    }
 
@@ -117,7 +117,7 @@ app.controller('ItemsListCtrl', function($scope, $http) {
    };
 
    $scope.addAnotherItem = function() {
-      $scope.event.items.push("");
+      $scope.event.items.push(""); 
    };
 
 });
