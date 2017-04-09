@@ -18,9 +18,13 @@ public class InMemoryEventRepository implements EventRepository {
 
   @Override
   public Event save(Event event) {
-    Long id = counter.incrementAndGet();
-    event.setId(id);
-    this.events.put(id, event);
+    if (event.getId() == null) {
+      Long id = counter.incrementAndGet();
+      event.setId(id);
+      this.events.put(id, event);
+    } else {
+      this.events.put(event.getId(), event);
+    }
     return event;
   }
 

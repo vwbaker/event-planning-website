@@ -50,10 +50,17 @@ public class EventApiController {
   public Event update(@PathVariable Long id, @RequestBody Event input) {
       Event event = eventRepository.findEvent(id);
       if (event == null) {
-          return null;
+        return create(event);
       } else {
-          // this isn't correct
-          return create(event);
+        event.setEventName(input.getEventName());
+        event.setGuests(input.getGuests());
+        event.setDate(input.getDate());
+        event.setLocation(input.getLocation());
+        event.setDescription(input.getDescription());
+        event.setTheme(input.getTheme());
+        event.setBudget(input.getBudget());
+        event.setItems(input.getItems());
+        return eventRepository.save(event);
       }
   }
   
