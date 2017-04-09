@@ -1,8 +1,5 @@
-# Team Project <put your project name here ...>
-Teamname <put your team name here ...>
-Sarah Kurdoghlian
-Tori Baker
-Pranathi Gundupalli
+# uPlan or iPlan
+Team Members: Tori Baker, Pranathi Guntupalli, Sarah Kurdoghlian
 
 ##1. Description
 
@@ -31,3 +28,4 @@ Estimate workload, define Milestones and a timeline when to complete implementat
 ##7.	Risks and Uncertainties
 
 List possible risks and other uncertainties which might delay or stop the proposed project.
+=======
