@@ -66,14 +66,16 @@ app.controller('EventCtrl', function($scope, $http) {
    <center>
 
  <ul>
-  <li><a class="active" href="/index.html">Home</a></li>
-  <li><a href="/team.html">Team</a></li>
-  <li><a href="/pictures.html">Add Pictures</a></li>
-  <li><a href="/viewevent?id=1">Your Event</a></li>
+  <li><a class="active" href="/index.html"><font color = "skyblue">Home</font></a></li>
+  <li><a href="/team.html"><font color = "skyblue">Team</font></a></li>
+  <li><a href="/pictures.html"><font color = "skyblue">Add Pictures</font></a></li>
+  <li><a href="/viewevent?id=1"><font color = "skyblue">Your Event</font></a></li>
+<img src="logo.svg" alt="Mountain View" align="left" style="width:50px;height:45px;">
+   <br> <div align="left"> <font size="6"><font color = "skyblue"><b>Plan-It </font></font></b></br></div>
 </ul>
 
 <p> </p>
-      
+       <h2>{{event.eventName}}</h2>
       Event Name: {{event.eventName}}<br />
       Guests: {{event.guests}}<br />
       When: {{event.date}}<br />
