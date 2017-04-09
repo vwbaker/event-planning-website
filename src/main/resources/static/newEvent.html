@@ -1,1 +1,45 @@
-Create a new event!
+<!DOCTYPE html>
+<html ng-app="NewEventApp">
+<head>
+<title>New Event App</title>
+<meta charset="utf-8">
+
+<script
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link
+        href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css"
+        rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="home.css" />
+
+
+<script>
+var app = angular.module('NewEventApp', []);
+
+app.controller('NewEventCtrl', function($scope, $http) {
+
+   $scope.createNewEvent = function() {
+      window.location.href = '/newEvent.html';
+   };
+
+});
+
+</script>
+</head>
+
+<body>
+   <div ng-controller="NewEventCtrl">
+   <h1 class = "brand-heading intro"> Create New Event </h1>
+   <p class="intro-text">A free, responsive, one page Bootstrap theme.
+                            <br>Created by Start Bootstrap.</p>
+   <a href="#about" class="btn btn-circle page-scroll">
+                            <i class="fa fa-angle-double-down animated"></i>
+                        </a>
+      Event Name: <input /> </p>
+      Guests: <input /> </p>
+      When: <input /> </p>
+      Where: <input /> </p>
+     
+      
+</div>
+</body>
+</html>
