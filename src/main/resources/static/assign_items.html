@@ -24,6 +24,61 @@ app.controller('NewEventCtrl', function($scope, $http) {
 
 });
 
+<style>
+.button {
+    border-radius: 25px;
+    background: #fed136;
+    border: none;
+    color: white;
+    padding: 10px; 
+    width: 150px;
+    height: 50px;  
+    display: inline-block;
+    transition-duration: 0.5s;
+    cursor: pointer; 
+    font-family: monospace; 
+    font-weight: bold;
+}
+
+.button1 {
+    background-color: #ffcc00; 
+    color: white; 
+}
+
+.button1:hover {
+    background-color: #ffe066;
+    color: white;
+    
+}
+
+.button2 {
+    background-color: #ffcc00; 
+    color: white; 
+}
+
+.button2:hover {
+    background-color: #ffe066;
+    color: white;
+    
+}
+
+.button3 {
+    background-color: #ffcc00; 
+    color: white; 
+}
+
+.button3:hover {
+    background-color: #ffe066;
+    color: white;
+    
+}
+
+input:hover, select:hover, button:hover {
+   background-color: grey;
+
+   }
+</style>
+
 </script>
 </head>
 
@@ -43,9 +98,9 @@ app.controller('NewEventCtrl', function($scope, $http) {
       
       Now, how do you plan on getting to the event? </p>
       
-<button onclick="getElementById('demo').innerHTML=Date()">Create a Carpool</button> </p>
-<button onclick="getElementById('demo').innerHTML=Date()">Sign up for Carpool</button> </p>
-<button onclick="getElementById('demo').innerHTML=Date()">Riding Solo</button> </p>
+<button onclick="getElementById('demo').innerHTML=Date()" class = "button button1">Create a Carpool</button> </p>
+<button onclick="getElementById('demo').innerHTML=Date()" class = "button button2">Sign up for Carpool</button> </p>
+<button onclick="getElementById('demo').innerHTML=Date()"  class = "button button3">Riding Solo</button> </p>
 
     </center>
      

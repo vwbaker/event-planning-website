@@ -37,8 +37,12 @@ public class EventApiController {
 
   @PostMapping
   public Event create(@RequestBody Event input) {
-      return eventRepository.save(new Event(input.getEventName(), input.getGuests(), input.getDate(),
-        input.getLocation(), input.getDescription(), input.getTheme()));
+      if (input.getId() == null) {
+        return eventRepository.save(new Event(input.getEventName(), input.getGuests(), input.getDate(),
+          input.getLocation(), input.getDescription(), input.getTheme()));
+      } else {
+        return update(input.getId(), input);
+      }
   }
 
   @DeleteMapping("{id}")
@@ -50,10 +54,33 @@ public class EventApiController {
   public Event update(@PathVariable Long id, @RequestBody Event input) {
       Event event = eventRepository.findEvent(id);
       if (event == null) {
-          return null;
+        return create(event);
       } else {
-          // this isn't correct
-          return create(event);
+        if (input.getEventName() != null) {
+          event.setEventName(input.getEventName());
+        }
+        if (input.getGuests() != null) {
+          event.setGuests(input.getGuests());
+        }
+        if (input.getDate() != null) {
+          event.setDate(input.getDate());
+        }
+        if (input.getLocation() != null) {
+          event.setLocation(input.getLocation());
+        }
+        if (input.getDescription() != null) {
+          event.setDescription(input.getDescription());
+        }
+        if (input.getTheme() != null) {
+          event.setTheme(input.getTheme());
+        }
+        if (input.getBudget() != null) {
+          event.setBudget(input.getBudget());
+        }
+        if (input.getItems() != null) {
+          event.setItems(input.getItems());
+        }
+        return eventRepository.save(event);
       }
   }
   
