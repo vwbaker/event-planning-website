@@ -56,14 +56,30 @@ public class EventApiController {
       if (event == null) {
         return create(event);
       } else {
-        event.setEventName(input.getEventName());
-        event.setGuests(input.getGuests());
-        event.setDate(input.getDate());
-        event.setLocation(input.getLocation());
-        event.setDescription(input.getDescription());
-        event.setTheme(input.getTheme());
-        event.setBudget(input.getBudget());
-        event.setItems(input.getItems());
+        if (input.getEventName() != null) {
+          event.setEventName(input.getEventName());
+        }
+        if (input.getGuests() != null) {
+          event.setGuests(input.getGuests());
+        }
+        if (input.getDate() != null) {
+          event.setDate(input.getDate());
+        }
+        if (input.getLocation() != null) {
+          event.setLocation(input.getLocation());
+        }
+        if (input.getDescription() != null) {
+          event.setDescription(input.getDescription());
+        }
+        if (input.getTheme() != null) {
+          event.setTheme(input.getTheme());
+        }
+        if (input.getBudget() != null) {
+          event.setBudget(input.getBudget());
+        }
+        if (input.getItems() != null) {
+          event.setItems(input.getItems());
+        }
         return eventRepository.save(event);
       }
   }

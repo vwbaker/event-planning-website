@@ -74,12 +74,10 @@ app.controller('NewEventCtrl', function($scope, $http) {
 			theme: $scope.event.theme
 		}
 	}
-        console.log($scope.id);
         if ($scope.id !== null) {
            postRequest.data.id = $scope.id;
         }
 	$http(postRequest).then(function(response) {
-		console.log(response.data.id);
       		window.location.href = '/items_list.html?id=' + response.data.id;
 	});
    };

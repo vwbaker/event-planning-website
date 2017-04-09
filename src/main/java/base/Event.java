@@ -7,12 +7,12 @@ public class Event {
   
   private Long id;
   private String eventName;
-  private ArrayList<String> guests = new ArrayList<String>();
+  private ArrayList<String> guests;
   private String date;
   private String location;
   private String description;
   private String theme;
-  private ArrayList<String> items = new ArrayList<String>();
+  private ArrayList<String> items;
   private String budget;
   
   public Event(String eventName, ArrayList<String> guests, String date, String location, String description, String theme) {

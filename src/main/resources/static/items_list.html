@@ -70,18 +70,56 @@ var app = angular.module('ItemsListApp', []);
 
 app.controller('ItemsListCtrl', function($scope, $http) {
 
-   $scope.createNewEvent = function() {
-      window.location.href = '/assign_items.html';
- };
-   $scope.createLastEvent = function() {
+   $scope.event = {};
+   $scope.event.items = [""];
+
+   var url = window.location.href.split('id=');
+   if (url.length > 1) {
+      $scope.id = url[1];
+      $http({
+         method: 'GET',
+         url: 'http://localhost:8080/event/' + $scope.id
+      }).then(function(response) {
+         $scope.event = response.data;
+         if ($scope.event.items == null) {
+            $scope.event.items = [""];
+         }
+      });
+   }
+
+   $scope.getPostRequest = function() {
       var url = window.location.href.split('id=');
       if (url.length > 1) {
-         window.location.href = '/newEvent.html?id=' + url[1];
-      } else {
-         window.location.href = '/newEvent.html';
+         var id = url[1];
+         var postRequest = {
+            method:'POST',
+            url: 'http://localhost:8080/event',
+            data: {
+               id: id,
+               items: $scope.event.items,
+               budget: $scope.event.budget
+            }
+         };
+         return postRequest;
       }
-  
+   }
+
+   $scope.createNewEvent = function() {
+      $http($scope.getPostRequest()).then(function(response) {
+         window.location.href = '/assign_items.html?id=' + response.data.id;
+      });
    };
+
+   $scope.createLastEvent = function() {
+      $http($scope.getPostRequest()).then(function(response) {
+         window.location.href = '/newEvent.html?id=' + response.data.id;
+      });
+   };
+
+   $scope.addAnotherItem = function() {
+      $scope.event.items.push("");
+   };
+
 });
 
 </script>
@@ -91,10 +129,18 @@ app.controller('ItemsListCtrl', function($scope, $http) {
    <div ng-controller="ItemsListCtrl">
    <center>
    
+   <h1>{{event.eventName}}</h1>
 <p> </p>
       
-      Items List: <input /> </p>
-      Budget: <input /> </p>
+      <table>
+         <tr ng-repeat="item in event.items track by $index">
+           <td>
+              Items List: <input ng-model="event.items[$index]"/> </p>
+            </td>
+         </tr>
+      </table>
+      <button ng-click="addAnotherItem()">Add Item</button></p>
+      Budget: <input ng-model="event.budget"/> </p>
 
 <p id="demo"></p>
 	
