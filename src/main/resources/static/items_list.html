@@ -60,9 +60,9 @@
     border: 2px solid #ff80df;
 }
 
-input:hover, select:hover, button:hover{
+input:hover, select:hover, button:hover {
    background-color: grey;
-   }
+}
 </style>
 
 <script>
@@ -74,7 +74,12 @@ app.controller('ItemsListCtrl', function($scope, $http) {
       window.location.href = '/assign_items.html';
  };
    $scope.createLastEvent = function() {
-      window.location.href = '/newEvent.html';
+      var url = window.location.href.split('id=');
+      if (url.length > 1) {
+         window.location.href = '/newEvent.html?id=' + url[1];
+      } else {
+         window.location.href = '/newEvent.html';
+      }
   
    };
 });

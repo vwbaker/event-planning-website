@@ -36,9 +36,9 @@
     border: 2px solid #ff80df;
 }
 
-input:hover, select:hover, button:hover{
+input:hover, select:hover, button:hover {
    background-color: grey;
-   }
+}
 
 
 </style>
@@ -50,12 +50,23 @@ app.controller('NewEventCtrl', function($scope, $http) {
    $scope.event = {};
    $scope.event.guests = [""];
 
+   var url = window.location.href.split('id=');
+   if (url.length > 1) {
+      $scope.id = url[1];
+      $http({
+         method: 'GET',
+         url: 'http://localhost:8080/event/' + $scope.id
+      }).then(function(response) {
+         $scope.event = response.data;
+      });
+   }
+
    $scope.createNewEvent = function() {
 	var postRequest = {
 		method: 'POST',
 		url: 'http://localhost:8080/event',
 		data: {
-			eventName: $scope.event.name,
+			eventName: $scope.event.eventName,
 			guests: $scope.event.guests,
 			date: $scope.event.date,
 			location: $scope.event.location,
@@ -63,9 +74,13 @@ app.controller('NewEventCtrl', function($scope, $http) {
 			theme: $scope.event.theme
 		}
 	}
+        console.log($scope.id);
+        if ($scope.id !== null) {
+           postRequest.data.id = $scope.id;
+        }
 	$http(postRequest).then(function(response) {
-		console.log(response);
-      		window.location.href = '/items_list.html';
+		console.log(response.data.id);
+      		window.location.href = '/items_list.html?id=' + response.data.id;
 	});
    };
 
@@ -86,7 +101,7 @@ app.controller('NewEventCtrl', function($scope, $http) {
 
    <font size = "14">Let's Start the Planning!</font> </p>
  
-   Event Name: <input ng-model="event.name"/> </p>
+   Event Name: <input ng-model="event.eventName"/> </p>
    <table>
       <tr ng-repeat="guest in event.guests track by $index">
          <td>

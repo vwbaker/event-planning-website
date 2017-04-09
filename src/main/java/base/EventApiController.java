@@ -37,8 +37,12 @@ public class EventApiController {
 
   @PostMapping
   public Event create(@RequestBody Event input) {
-      return eventRepository.save(new Event(input.getEventName(), input.getGuests(), input.getDate(),
-        input.getLocation(), input.getDescription(), input.getTheme()));
+      if (input.getId() == null) {
+        return eventRepository.save(new Event(input.getEventName(), input.getGuests(), input.getDate(),
+          input.getLocation(), input.getDescription(), input.getTheme()));
+      } else {
+        return update(input.getId(), input);
+      }
   }
 
   @DeleteMapping("{id}")
