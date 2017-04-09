@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html ng-app="AssignItemsApp">
+<head>
+<title>Assign Items App</title>
+<meta charset="utf-8">
+
+<script
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link
+        href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css"
+        rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="home.css" />
+
+
+<script>
+var app = angular.module('AssignItemsApp', []);
+
+app.controller('NewEventCtrl', function($scope, $http) {
+
+   $scope.createNewEvent = function() {
+      window.location.href = '/assign_items.html';
+   };
+
+});
+
+</script>
+</head>
+
+<body>
+   <div ng-controller="AssignItemsCtrl">
+   <center>
+   
+<p> </p>
+      
+
+      Item 1: Some Person </p>
+      Item 2: Some Person</p>
+ 
+
+    </center>
+     
+      
+</div>
+</body>
+</html>
