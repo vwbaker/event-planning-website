@@ -84,6 +84,15 @@ app.controller('ItemsListCtrl', function($scope, $http) {
          $scope.event = response.data;
          if ($scope.event.items == null) {
             $scope.event.items = [""];
+         }
+         var name = "feature-header7 (1).png";
+         /*if ($scope.event.theme === "Christmas") {
+            name = "christmas.png";
+         } else if ($scope.event.theme === "Wedding") {
+            name = "wedding.png";
+         } else if (*/
+         document.body.style.background = 'url("' + $scope.event.theme + '.png") no-repeat center center fixed';
+	 document.body.style.backgroundSize = "100%"
       });
    }
 
