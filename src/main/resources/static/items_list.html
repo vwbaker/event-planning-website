@@ -121,6 +121,9 @@ app.controller('ItemsListCtrl', function($scope, $http) {
    };
 
    $scope.addAnotherItem = function() {
+      if ($scope.event.items === undefined) {
+         $scope.event.items = [""]
+         }
       $scope.event.items.push(""); 
    };
 
