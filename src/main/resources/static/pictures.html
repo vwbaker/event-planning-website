@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html ng-app="PicturesApp">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+<title>Pictures App</title>
+<meta charset="utf-8">
+
+<script
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link
+        href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css"
+        rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="home.css" />
+
+<style> 
+#rcorners1 {
+    border-radius: 25px;
+    background: #73AD21;
+    padding: 20px; 
+    width: 150px;
+    height: 60px;    
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+li {
+    float: right;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: #111;
+}
+</style>
+<script>
+var app = angular.module('PicturesApp', []);
+
+app.controller('NewEventCtrl', function($scope, $http) {
+
+   $scope.createNewEvent = function() {
+   var postRequest = {
+      method: 'POST',
+      url: 'http://localhost:8080/event',
+      data: {
+         eventName: $scope.event.name,
+         guests: $scope.event.guests,
+         date: $scope.event.date,
+         location: $scope.event.location,
+         description: $scope.event.description,
+         theme: $scope.event.theme
+      }
+   }
+   $http(postRequest).then(function(response) {
+      console.log(response);
+            window.location.href = '/items_list.html';
+   });
+   };
+});
+
+</script>
+</head>  
+<body>
+<div ng-controller="PicturesCtrl">
+   <center>
+   <ul>
+  <li><a class="active" href="/index.html">Home</a></li>
+  <li><a href="/team.html">Team</a></li>
+  <li><a href="/pictures.html">Add Pictures</a></li>
+  <li><a href="/viewevent?id=1">Your Event</a></li>
+</ul>
+
+</div>             
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="index.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="about.html">About</a>
+                    </li>
+                    <li>
+                        <a href="blog.html">Blog</a>
+                    </li>
+                    <li>
+                        <a href="contact.html">Contact</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+  <center>
+    <div class="container">
+        <div class="row">
+            <div class="box">
+                <div class="col-lg-12">
+              
+                    <hr>
+                    <h2 class="intro-text text-center">
+                        <strong>Pictures</strong>
+                    </h2>
+                    <hr>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <img class="img-responsive img-border img-full" src="grandma.jpg" alt="">
+                    <h2> <font size = "12"> Grandma's Birthday Party </font>
+                        <br>
+                        <small><font color = "black"><b>April 5,2017</font></b></small>
+                    </h2>
+                   <b> Grandma Patty's 50th birthday party celebrations! </b></p>
+                    <a href="#" class="btn btn-default btn-lg">See More</a>
+                    <hr>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <img class="img-responsive img-border img-full" src="girlsDay.jpeg" alt="">
+                    <h2><font size = "12"> Girls Day </font>
+                        <br>
+                        <small><font color = "black"><b>July 16,2016</font></b></small>
+                    </h2>
+                    <b> The three musketeers :) </b></p>
+                    <a href="#" class="btn btn-default btn-lg">See More</a>
+                    <hr>
+                </div>
+                <div class="col-lg-12 text-center">
+                    <img class="img-responsive img-border img-full" src="hiking.jpeg" alt="">
+                    <h2><font size = "12"> Hiking Trip! </font>
+                        <br>
+                        <small><font color = "black"><b>October 13,2013</font></b></small>
+                    </h2>
+                    <b> Beautiful hike through the woods and some gorgeous pictures of the sunset!  </b></p>
+                    <a href="#" class="btn btn-default btn-lg">See More</a>
+                    <hr>
+                </div>
+                <div class="col-lg-12 text-center">
+                   
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>    
+</center>    
+</div>
+</body>
+</html>
