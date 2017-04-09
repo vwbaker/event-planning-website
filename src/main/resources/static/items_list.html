@@ -14,55 +14,56 @@
 <style> 
 .button {
     border-radius: 25px;
-    background: #ff80df;
+    background: #fed136;
     border: none;
     color: white;
     padding: 10px; 
-    width: 200px;
-    height: 100px;  
+    width: 150px;
+    height: 50px;  
     display: inline-block;
-    transition-duration: 0.7s;
-    cursor: pointer;  
+    transition-duration: 0.5s;
+    cursor: pointer; 
+    font-family: monospace; 
+    font-weight: bold;
 }
 
 .button1 {
-    background-color: #ff80df; 
-    color: black; 
+    background-color: #ffcc00; 
+    color: white; 
 }
 
 .button1:hover {
-    background-color: white;
-    color: black;
-    border: 2px solid #ff80df;
-}
-
-.button2 {
-    border-radius: 25px;
-    background: #ff80df;
-    border: none;
+    background-color: #ffe066;
     color: white;
-    padding: 10px; 
-    width: 400px;
-    height: 70px;  
-    display: inline-block;
-    transition-duration: 0.7s;
-    cursor: pointer;  
+    
 }
 
 .button2 {
-    background-color: #ff80df; 
-    color: black; 
+    background-color: #ffcc00; 
+    color: white; 
 }
 
 .button2:hover {
-    background-color: white;
-    color: black;
-    border: 2px solid #ff80df;
+    background-color: #ffe066;
+    color: white;
+    
+}
+
+.button3 {
+    background-color: #ffcc00; 
+    color: white; 
+}
+
+.button3:hover {
+    background-color: #ffe066;
+    color: white;
+    
 }
 
 input:hover, select:hover, button:hover {
    background-color: grey;
-}
+
+   }
 </style>
 
 <script>
@@ -83,7 +84,6 @@ app.controller('ItemsListCtrl', function($scope, $http) {
          $scope.event = response.data;
          if ($scope.event.items == null) {
             $scope.event.items = [""];
-         }
       });
    }
 
@@ -139,14 +139,14 @@ app.controller('ItemsListCtrl', function($scope, $http) {
             </td>
          </tr>
       </table>
-      <button ng-click="addAnotherItem()">Add Item</button></p>
+      <button ng-click="addAnotherItem()" class = "button button3"><font-weight: bold>Add Item</button></p>
       Budget: <input ng-model="event.budget"/> </p>
 
 <p id="demo"></p>
 	
 	
 	<button ng-click="createLastEvent()" class="button button1"> <font size = "6">Back</button></font>
-	<button ng-click="createNewEvent()" class="button button1"> <font size = "6">Next</button></font> 
+	<button ng-click="createNewEvent()" class="button button2"> <font size = "6">Next</button></font> 
   
 	
 </center>      
