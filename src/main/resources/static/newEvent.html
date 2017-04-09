@@ -18,7 +18,22 @@ var app = angular.module('NewEventApp', []);
 app.controller('NewEventCtrl', function($scope, $http) {
 
    $scope.createNewEvent = function() {
-      window.location.href = '/newEvent.html';
+	var postRequest = {
+		method: 'POST',
+		url: 'http://localhost:8080/event',
+		data: {
+			eventName: $scope.event.name,
+			guests: $scope.event.guests,
+			date: $scope.event.date,
+			location: $scope.event.location,
+			description: $scope.event.description,
+			theme: $scope.event.theme
+		}
+	}
+	$http(postRequest).then(function(response) {
+		console.log(response);
+      		window.location.href = '/index.html';
+	});
    };
 
 });
@@ -33,11 +48,11 @@ app.controller('NewEventCtrl', function($scope, $http) {
 <p> </p>
       
 
-      Event Name: <input /> </p>
-      Guests: <input /> </p>
-      When: <input /> </p>
-      Where: <input /> </p>
-      Themes: <input /> </p>
+      Event Name: <input ng-model="event.name"/> </p>
+      Guests: <input ng-model="event.guests"/> </p>
+      When: <input ng-model="event.date"/> </p>
+      Where: <input ng-model="event.location"/> </p>
+      Themes: <input "ng-model=event.theme"/> </p>
       
       <button ng-click="createNewEvent()">Next</button>
 
