@@ -11,6 +11,32 @@
         rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="home.css" />
 
+<style>
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: #111;
+}
+
+</style>
 
 <script>
 var app = angular.module('EventApp', []);
@@ -38,7 +64,14 @@ app.controller('EventCtrl', function($scope, $http) {
 <body>
    <div ng-controller="EventCtrl">
    <center>
-   
+
+ <ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#team">Team</a></li>
+  <li><a href="#blog">Blog</a></li>
+</ul>
+
 <p> </p>
       
       Event Name: {{event.eventName}}<br />
@@ -48,9 +81,7 @@ app.controller('EventCtrl', function($scope, $http) {
       Description: {{event.description}}<br />
       Themes: {{event.theme}} <br />
       
-    </center>
-     
-      
+</center>     
 </div>
 </body>
 </html>
