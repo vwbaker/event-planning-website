@@ -84,7 +84,6 @@ app.controller('ItemsListCtrl', function($scope, $http) {
          $scope.event = response.data;
          if ($scope.event.items == null) {
             $scope.event.items = [""];
-         }
       });
    }
 
