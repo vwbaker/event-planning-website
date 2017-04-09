@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html ng-app="NewEventApp">
+<html ng-app="TeamApp">
 <head>
-<title>New Event App</title>
+<title>Team App</title>
 <meta charset="utf-8">
 
 <script
@@ -45,7 +45,7 @@ li a:hover {
 
 </style>
 <script>
-var app = angular.module('NewEventApp', []);
+var app = angular.module('TeamApp', []);
 
 app.controller('NewEventCtrl', function($scope, $http) {
 
@@ -78,12 +78,12 @@ app.controller('NewEventCtrl', function($scope, $http) {
    <ul>
   <li><a class="active" href="/index.html">Home</a></li>
   <li><a href="/team.html">Team</a></li>
-  <li><a href="#pictures">Add Pictures</a></li>
+  <li><a href="/pictures.html">Add Pictures</a></li>
   <li><a href="/viewevent?id=1">Your Event</a></li>
 </ul>
    <p> </p>   
    <br></br>
-   <font size = "10"> Meet Our Team Members: </font> <p></p>
+   <font size = "12"> Meet Our Team Members: </font> <p></p>
 
    <div class="team-member">
    <p></p>
