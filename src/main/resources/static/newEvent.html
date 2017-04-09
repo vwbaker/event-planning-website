@@ -26,6 +26,8 @@
 var app = angular.module('NewEventApp', []);
 
 app.controller('NewEventCtrl', function($scope, $http) {
+   $scope.event = {};
+   $scope.event.guests = [""];
 
    $scope.createNewEvent = function() {
 	var postRequest = {
@@ -46,6 +48,10 @@ app.controller('NewEventCtrl', function($scope, $http) {
 	});
    };
 
+   $scope.addAnotherGuest = function() {
+      $scope.event.guests.push("");
+   };
+
 });
 
 
@@ -60,7 +66,14 @@ app.controller('NewEventCtrl', function($scope, $http) {
    <font size = "14">Let's Start the Planning!</font> </p>
  
    Event Name: <input ng-model="event.name"/> </p>
-   Guests: <input ng-model="event.guests"/> </p>
+   <table>
+      <tr ng-repeat="guest in event.guests track by $index">
+         <td>
+            Guests: <input ng-model="event.guests[$index]"/> </p>
+	 </td>
+      </tr>
+   </table>
+	    <button ng-click="addAnotherGuest()">Add another guest</button></p>
    When: <input ng-model="event.date"/> </p>
    Where: <input ng-model="event.location"/> </p>
 
@@ -75,7 +88,20 @@ app.controller('NewEventCtrl', function($scope, $http) {
          <option value="House Warming">House Warming</option>
       </select> </p>
 
-   <button ng-click="createNewEvent()" id="rcorners1"> <font size = "6">Next</button></font>     
+   <button ng-click="createNewEvent()" id="rcorners1"> <font size = "6">Next</button></font> 
+   <div class="team-member">
+                        <img src="sarah.jpg" class="img-responsive img-circle" alt="">
+                        <h4>Sarah Kurdoghlian</h4>
+                        <p class="text-muted">Designer</p>
+                        <ul class="list-inline social-buttons">
+                            <li><a href="#"><i class="fa fa-twitter"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a>
+                            </li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a>
+                            </li>
+                        </ul>
+                    </div>    
       
     </center>
      
