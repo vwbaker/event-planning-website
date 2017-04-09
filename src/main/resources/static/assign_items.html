@@ -12,6 +12,7 @@
 <link rel="stylesheet" type="text/css" href="home.css" />
 
 
+<script>
 var app = angular.module('AssignItemsApp', []);
 
 app.controller('AssignItemsCtrl', function($scope, $http) {
@@ -36,9 +37,6 @@ app.controller('AssignItemsCtrl', function($scope, $http) {
   };
 
    $scope.droponguest = function(index) {
-      console.log('guest #' + index + ' is bringing ' + $scope.curItem);
-      console.log($scope.event.items);
-      console.log($scope.event.items[$scope.curItem]);
       $scope.guestitems[index].push($scope.event.items[$scope.curItem]);
       $scope.event.items[$scope.curItem] = "";
    };
@@ -48,6 +46,7 @@ app.controller('AssignItemsCtrl', function($scope, $http) {
    };
 
 });
+</script>
 
 <style>
 .button {
@@ -103,8 +102,6 @@ input:hover, select:hover, button:hover {
 
    }
 </style>
-
-</script>
 
 </head>
 
