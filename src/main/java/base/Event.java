@@ -3,6 +3,7 @@ package base;
 
 public class Event {
   
+  private Long id;
   private String eventName;
   private String guests;
   private String date;
@@ -18,6 +19,8 @@ public class Event {
     this.description = description;
     this.theme = theme;
   }
+  
+  public Event() { }
   
   public String getEventName() {
     return eventName;
@@ -41,6 +44,14 @@ public class Event {
   
   public String getTheme() {
     return theme;
+  }
+  
+  public Long getId() {
+    return id;
+  }
+  
+  public void setId(Long id) {
+    this.id = id;
   }
   
 }

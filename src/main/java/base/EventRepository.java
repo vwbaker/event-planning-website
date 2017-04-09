@@ -10,8 +10,8 @@ public interface EventRepository {
 
   List<Event> save(List<Event> events);
 
-  Event findEvent(String name);
+  Event findEvent(Long id);
 
-  Event deleteEvent(String name);
+  Event deleteEvent(Long id);
   
 }

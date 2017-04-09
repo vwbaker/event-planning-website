@@ -3,10 +3,13 @@ package base;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class InMemoryEventRepository implements EventRepository {
   
-  private final ConcurrentMap<String, Event> events = new ConcurrentHashMap<String, Event>();
+  private static AtomicLong counter = new AtomicLong();
+  
+  private final ConcurrentMap<Long, Event> events = new ConcurrentHashMap<Long, Event>();
 
   @Override
   public Iterable<Event> findAll() {
@@ -15,8 +18,9 @@ public class InMemoryEventRepository implements EventRepository {
 
   @Override
   public Event save(Event event) {
-    String name = event.getEventName();
-    this.events.put(name, event);
+    Long id = counter.incrementAndGet();
+    event.setId(id);
+    this.events.put(id, event);
     return event;
   }
 
@@ -29,13 +33,13 @@ public class InMemoryEventRepository implements EventRepository {
   }
 
   @Override
-  public Event findEvent(String name) {
-    return this.events.get(name);
+  public Event findEvent(Long id) {
+    return this.events.get(id);
   }
 
   @Override
-  public Event deleteEvent(String name) {
-    return this.events.remove(name);
+  public Event deleteEvent(Long id) {
+    return this.events.remove(id);
   }
 
 }

@@ -30,9 +30,9 @@ public class EventApiController {
       return events;
   }
 
-  @GetMapping("{name}")
-  public Event find(@PathVariable String name) {
-      return eventRepository.findEvent(name);
+  @GetMapping("{id}")
+  public Event find(@PathVariable Long id) {
+      return eventRepository.findEvent(id);
   }
 
   @PostMapping
@@ -41,14 +41,14 @@ public class EventApiController {
         input.getLocation(), input.getDescription(), input.getTheme()));
   }
 
-  @DeleteMapping("{name}")
-  public Event delete(@PathVariable String name) {
-      return eventRepository.deleteEvent(name);
+  @DeleteMapping("{id}")
+  public Event delete(@PathVariable Long id) {
+      return eventRepository.deleteEvent(id);
   }
 
-  @PutMapping("{name}")
-  public Event update(@PathVariable String name, @RequestBody Event input) {
-      Event event = eventRepository.findEvent(name);
+  @PutMapping("{id}")
+  public Event update(@PathVariable Long id, @RequestBody Event input) {
+      Event event = eventRepository.findEvent(id);
       if (event == null) {
           return null;
       } else {
