@@ -28,16 +28,20 @@ app.controller('NewEventCtrl', function($scope, $http) {
 
 <body>
    <div ng-controller="NewEventCtrl">
-   <h1 class = "brand-heading intro"> Create New Event </h1>
-   <p class="intro-text">A free, responsive, one page Bootstrap theme.
-                            <br>Created by Start Bootstrap.</p>
-   <a href="#about" class="btn btn-circle page-scroll">
-                            <i class="fa fa-angle-double-down animated"></i>
-                        </a>
+   <center>
+   
+<p> </p>
+      
+
       Event Name: <input /> </p>
       Guests: <input /> </p>
       When: <input /> </p>
       Where: <input /> </p>
+      Themes: <input /> </p>
+      
+      <button ng-click="createNewEvent()">Next</button>
+
+    </center>
      
       
 </div>
