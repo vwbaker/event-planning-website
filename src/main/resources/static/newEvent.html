@@ -11,6 +11,16 @@
         rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="home.css" />
 
+<style> 
+#rcorners1 {
+    border-radius: 25px;
+    background: #73AD21;
+    padding: 20px; 
+    width: 150px;
+    height: 60px;    
+}
+
+</style>
 
 <script>
 var app = angular.module('NewEventApp', []);
@@ -23,6 +33,7 @@ app.controller('NewEventCtrl', function($scope, $http) {
 
 });
 
+
 </script>
 </head>
    
@@ -30,7 +41,7 @@ app.controller('NewEventCtrl', function($scope, $http) {
    <div ng-controller="NewEventCtrl">
    <center>
    <p> </p>     
- 
+   <font size = "14">Let's Start the Planning!</font> </p>
    Event Name: <input /> </p>
    Guests: <input /> </p>
    When: <input /> </p>
@@ -46,12 +57,10 @@ app.controller('NewEventCtrl', function($scope, $http) {
          <option value="House Warming">House Warming</option>
       </select> </p>
 
-   <button ng-click="createNewEvent()">Next</button>
-      
-      
-    </center>
-     
-      
+   <button ng-click="createNewEvent()" id="rcorners1"> <font size = "6">Next</button>
+   </font>     
+   
+</center>          
 </div>
 </body>
 </html>
