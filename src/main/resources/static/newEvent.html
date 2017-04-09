@@ -28,7 +28,22 @@ var app = angular.module('NewEventApp', []);
 app.controller('NewEventCtrl', function($scope, $http) {
 
    $scope.createNewEvent = function() {
-      window.location.href = '/items_list.html';
+	var postRequest = {
+		method: 'POST',
+		url: 'http://localhost:8080/event',
+		data: {
+			eventName: $scope.event.name,
+			guests: $scope.event.guests,
+			date: $scope.event.date,
+			location: $scope.event.location,
+			description: $scope.event.description,
+			theme: $scope.event.theme
+		}
+	}
+	$http(postRequest).then(function(response) {
+		console.log(response);
+      		window.location.href = '/items_list.html';
+	});
    };
 
 });
@@ -41,13 +56,16 @@ app.controller('NewEventCtrl', function($scope, $http) {
    <div ng-controller="NewEventCtrl">
    <center>
    <p> </p>     
+
    <font size = "14">Let's Start the Planning!</font> </p>
-   Event Name: <input /> </p>
-   Guests: <input /> </p>
-   When: <input /> </p>
-   Where: <input /> </p>
+ 
+   Event Name: <input ng-model="event.name"/> </p>
+   Guests: <input ng-model="event.guests"/> </p>
+   When: <input ng-model="event.date"/> </p>
+   Where: <input ng-model="event.location"/> </p>
+
    Themes:
-      <select>
+      <select ng-model="event.theme">
          <option value="Wedding">Wedding</option>
          <option value="Baby Shower">Baby Shower</option>
          <option value="Birthday">Birthday</option>
@@ -57,10 +75,10 @@ app.controller('NewEventCtrl', function($scope, $http) {
          <option value="House Warming">House Warming</option>
       </select> </p>
 
-   <button ng-click="createNewEvent()" id="rcorners1"> <font size = "6">Next</button>
-   </font>     
-   
-</center>          
+   <button ng-click="createNewEvent()" id="rcorners1"> <font size = "6">Next</button></font>     
+      
+    </center>
+     
 </div>
 </body>
 </html>

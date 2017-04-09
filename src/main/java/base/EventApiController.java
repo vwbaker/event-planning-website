@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/newEvent")
+@RequestMapping("/event")
 public class EventApiController {
   
   private final EventRepository eventRepository;
