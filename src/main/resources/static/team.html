@@ -20,6 +20,29 @@
     height: 60px;    
 }
 
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: #111;
+}
+
 </style>
 <script>
 var app = angular.module('NewEventApp', []);
@@ -52,6 +75,13 @@ app.controller('NewEventCtrl', function($scope, $http) {
 <body>
    <div ng-controller="NewEventCtrl">
    <center>
+   <ul>
+  <li><a class="active" href="#home">Home</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="#team">Team</a></li>
+  <li><a href="#pictures">Add Pictures</a></li>
+  <li><a href="#event">Your Event</a></li>
+</ul>
    <p> </p>     
    <font size = "10"> Our Amazing Team: </font> <p></p>
 
@@ -60,13 +90,10 @@ app.controller('NewEventCtrl', function($scope, $http) {
       <img src="sarah.jpg" width = "25%" height= "25%" class="img-responsive img-circle" alt="" align = "left">
       Sarah
       <img src="tori.jpg" width = "25%" height= "25%" class="img-responsive img-circle" alt="">
-      <img src="pranathi2.jpg" width = "25%" height= "25%" class="img-responsive img-circle" alt="" align = "right">
+      <img src="pranathi3.jpg" width = "25%" height= "25%" class="img-responsive img-circle" alt="" align = "right">
 
       
-
-
-      
-   </div>    
+</div>    
       
 </center>     
 </div>
