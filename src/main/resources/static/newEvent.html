@@ -14,31 +14,51 @@
 <style> 
 .button {
     border-radius: 25px;
-    background: #ff80df;
+    background: #fed136;
     border: none;
     color: white;
     padding: 10px; 
-    width: 200px;
-    height: 100px;  
+    width: 150px;
+    height: 50px;  
     display: inline-block;
-    transition-duration: 0.7s;
-    cursor: pointer;  
+    transition-duration: 0.5s;
+    cursor: pointer; 
+    font-family: monospace; 
+    font-weight: bold;
 }
 
 .button1 {
-    background-color: #ff80df; 
-    color: black; 
+    background-color: #ffcc00; 
+    color: white; 
 }
 
 .button1:hover {
-    background-color: white;
-    color: black;
-    border: 2px solid #ff80df;
+    background-color: #ffe066;
+    color: white;
+    
+}
+
+.button2 {
+    background-color: #ffcc00; 
+    color: white; 
+}
+
+.button2:hover {
+    background-color: #ffe066;
+    color: white;
+    
 }
 
 input:hover, select:hover, button:hover{
    background-color: grey;
    }
+   
+#textboxid
+{
+   height:100px; !important;
+   width: 300px;
+   
+}
 
 
 </style>
@@ -80,7 +100,7 @@ app.controller('NewEventCtrl', function($scope, $http) {
 </head>
    
 <body>
-   <div ng-controller="NewEventCtrl">
+   <div ng-controller="NewEventCtrl" align = "center">
    <center>
    <p> </p>     
 
@@ -94,7 +114,7 @@ app.controller('NewEventCtrl', function($scope, $http) {
 	 </td>
       </tr>
    </table>
-	    <button ng-click="addAnotherGuest()">Add another guest</button></p>
+	    <button ng-click="addAnotherGuest()" class = "button button2">Add Guest</button></p>
    When: <input ng-model="event.date"/> </p>
    Where: <input ng-model="event.location"/> </p>
 
@@ -108,7 +128,9 @@ app.controller('NewEventCtrl', function($scope, $http) {
          <option value="Halloween">Halloween</option>
          <option value="House Warming">House Warming</option>
       </select> </p>
-   
+      
+   Description: <textarea rows="4" cols="60" placeholder = "Peter is turning 50! Let's all help and plan him a surprise party!" wrap = "hard" ng-model = "event.description"></textarea>
+  <br></br> 
    <button ng-click="createNewEvent()" class="button button1"> <font size = "6">Next</button></font> 
   
     </center>
