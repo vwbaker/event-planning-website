@@ -1,1 +1,34 @@
-Hello World
+<!DOCTYPE html>
+<html ng-app="HomeApp">
+<head>
+<title>Home App</title>
+<meta charset="utf-8">
+
+<script
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link
+        href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css"
+        rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="home.css" />
+
+
+<script>
+var app = angular.module('HomeApp', []);
+
+app.controller('HomeCtrl', function($scope, $http) {
+
+	$scope.createNewEvent = function() {
+		window.location.href = '/newEvent.html';
+	};
+
+});
+
+</script>
+</head>
+
+<body>
+	<div ng-controller="HomeCtrl">
+		<button ng-click="createNewEvent()">Create New Event</button>
+	</div>
+</body>
+</html>
