@@ -47,6 +47,9 @@ app.controller('AssignItemsCtrl', function($scope, $http) {
    $scope.goToEventPage = function() {
       window.location.href = '/eventPage.html?id=' + $scope.id;
    };
+    $scope.goToCarpoolPage = function() {
+      window.location.href = '/addcar.html?id=' + $scope.id;
+   };
 
 });
 </script>
@@ -118,7 +121,6 @@ Organize who brings what: </p>
               </td>
             </tr>
          </table>
-         
      </div>
 
       <div>
@@ -141,12 +143,9 @@ Organize who brings what: </p>
       </div>
       
       Now, how do you plan on getting to the event? </p>
-            
-        
-      
+           
 
-<button class = "button button1">Create a Carpool</button></p>
-<button class = "button button2">Sign up for Carpool</button> </p>
+<button class = "button button1"><a class="active" ng-click="goToCarpoolPage()">Add or Join Carpool</button></a></p>
 <button class = "button button3"><a class="active" ng-click="goToEventPage()">Riding Solo</button></a></p>
 
 

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html ng-app="AddCarApp">
+<head>
+<title>Add Car App</title>
+<meta charset="utf-8">
+
+<script
+        src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<link
+        href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-combined.min.css"
+        rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="home.css" />
+
+<style> 
+.button {
+    border-radius: 25px;
+    background: #fed136;
+    border: none;
+    color: white;
+    padding: 10px; 
+    width: 150px;
+    height: 50px;  
+    display: inline-block;
+    transition-duration: 0.5s;
+    cursor: pointer; 
+    font-family: monospace; 
+    font-weight: bold;
+}
+
+.button1 {
+    background-color: #ffcc00; 
+    color: white; 
+}
+
+.button1:hover {
+    background-color: #ffe066;
+    color: white;
+    
+}
+
+.button2 {
+    background-color: #ffcc00; 
+    color: white; 
+}
+
+.button2:hover {
+    background-color: #ffe066;
+    color: white;
+    
+}
+
+.button3 {
+    background-color: #ffcc00; 
+    color: white; 
+}
+
+.button3:hover {
+    background-color: #ffe066;
+    color: white;
+    
+}
+
+input:hover, select:hover, button:hover {
+   background-color: grey;
+
+   }
+</style>
+
+<script>
+var app = angular.module('AddCarApp', []);
+
+app.controller('ItemsListCtrl', function($scope, $http) {
+
+   $scope.event = {};
+   $scope.event.items = [""];
+
+   var url = window.location.href.split('id=');
+   if (url.length > 1) {
+      $scope.id = url[1];
+      $http({
+         method: 'GET',
+         url: 'http://localhost:8080/event/' + $scope.id
+      }).then(function(response) {
+         $scope.event = response.data;
+         if ($scope.event.items === null) {
+            $scope.event.items = [""];
+         }
+         var name = "feature-header7 (1).png";
+         document.body.style.background = 'url("' + $scope.event.theme + '.png") no-repeat center center fixed';
+    document.body.style.backgroundSize = "100%"
+      });
+   }
+
+   $scope.getPostRequest = function() {
+      var url = window.location.href.split('id=');
+      if (url.length > 1) {
+         var id = url[1];
+         var postRequest = {
+            method:'POST',
+            url: 'http://localhost:8080/event',
+            data: {
+               id: id,
+               items: $scope.event.items,
+               budget: $scope.event.budget
+            }
+         };
+         return postRequest;
+      }
+   }
+
+   $scope.createNewEvent = function() {
+      $http($scope.getPostRequest()).then(function(response) {
+         window.location.href = '/assign_items.html?id=' + response.data.id;
+      });
+   };
+
+   $scope.createLastEvent = function() {
+      $http($scope.getPostRequest()).then(function(response) {
+         window.location.href = '/newEvent.html?id=' + response.data.id;
+      });
+   };
+
+   $scope.addCar = function() {
+      if ($scope.event.car === undefined) {
+         $scope.event.car = [""]
+         }
+      $scope.event.items.push(""); 
+   };
+
+});
+
+</script>
+</head>
+
+<body>
+   <div ng-controller="AddCarCtrl">
+   <center>
+   
+   <h1>{{event.eventName}}</h1>
+<p> </p>
+
+      Create Your Carpool
+      
+      <table>
+         <tr ng-repeat="item in event.items track by $index">
+           <td>
+              Items List: <input ng-model="event.items[$index]"/> </p>
+            </td>
+         </tr>
+      </table>
+      <button ng-click="addAnotherItem()" class = "button button3"><font-weight: bold>Add Car</button></p>
+      Name: <input /><br>
+      Email:<input /> <br>
+      Phone: <input /><br>
+      Seats: <input /><br>
+      Departing Time:<input /> <br>
+      Returning Time: <input /> <br>
+      Notes: <input /> <br>
+    
+      Budget: <input ng-model="event.budget"/> </p>
+
+<p id="demo"></p>
+   
+   
+   <button ng-click="createLastEvent()" class="button button1"> <font size = "6">Back</button></font>
+   <button ng-click="createNewEvent()" class="button button2"> <font size = "6">Next</button></font> 
+  
+   
+</center>      
+</div>
+</body>
+</html>
